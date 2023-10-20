@@ -67,14 +67,14 @@
     "href": "content/01_journal/01_probability.html",
     "title": "Probability Theory",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh.\nThis is a .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "1 Assignment I\n\\[\\begin{gather}\nP(T \\cap S) =  0.2 * 0.3 = 0.06 \\\\\nP(T \\cap \\overline{S}) =  0.6 * 0.7 = 0.42 \\\\\nP(\\overline{T} \\cap S) =  0.8 * 0.3 = 0.24 \\\\\nP(\\overline{T} \\cap \\overline{S}) =  0.4 * 0.7 = 0.28 \\\\\nP(T \\cap S) + P(T \\cap \\overline{S}) + P(\\overline{T} \\cap S) + P(\\overline{T} \\cap \\overline{S}) = 1\n\\end{gather}\\]\n\n\n2 Assignment II\n\nPercentage of customers using all three devices:\n\n0.5%\n\nPercentage of customers using at least 2 devices:\n\n\\(7.3 + 3.3 + 8.8 + 0.5 = 19.9\\text{%}\\)\n\nPercentage of customers using only one device:\n\n\\(27.8 + 42.3 + 10.0 = 80.1\\text{%}\\)\n\n\n\n\n3 Assignment III\nFrom the given info we have \\(P(B|A) = 0.97\\) and \\(P(B|\\overline{A}) = 0.01\\)\nand thus: \\(P(\\overline{B}|\\overline{A}) = 0.99\\)\n\\(P(B) = P(B|A) * P(A) + P(B|\\overline{A}) * P(\\overline{A}) = 0.97 * 0.04 + 0.01 * 0.96 = 0.0484\\)\n\\(P( \\overline{A}|B ) = \\frac{P(B|\\overline{A}) P(\\overline{A})} {P(B)} = \\frac{0.01 * 0.96}{0.0484} = 0.1983\\)\n\\(P(A|B) = \\frac{P(B|A) P(A)}{P(B)} = \\frac{0.97 * 0.04}{0.0484} = 0.8017\\)\nThese probabilities add up to 1, as they should"
   },
   {
     "objectID": "content/01_journal/01_probability.html#header-2",
     "href": "content/01_journal/01_probability.html#header-2",
     "title": "Probability Theory",
-    "section": "2.1 Header 2",
-    "text": "2.1 Header 2\n\nHeader 3\n\nHeader 4\n\nHeader 5\n\nHeader 6"
+    "section": "5.1 Header 2",
+    "text": "5.1 Header 2\n\nHeader 3\n\nHeader 4\n\nHeader 5\n\nHeader 6"
   },
   {
     "objectID": "content/01_journal/03_regression.html",

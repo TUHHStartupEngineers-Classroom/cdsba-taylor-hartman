@@ -2,96 +2,33 @@
 title: "Probability Theory"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+# Assignment I
 
-This is a `.qmd` file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a \# in front of your text, it will create a top level-header.
+\begin{gather}
+P(T \cap S) =  0.2 * 0.3 = 0.06 \\
+P(T \cap \overline{S}) =  0.6 * 0.7 = 0.42 \\
+P(\overline{T} \cap S) =  0.8 * 0.3 = 0.24 \\
+P(\overline{T} \cap \overline{S}) =  0.4 * 0.7 = 0.28 \\
+P(T \cap S) + P(T \cap \overline{S}) + P(\overline{T} \cap S) + P(\overline{T} \cap \overline{S}) = 1
+\end{gather}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Assignment II
+* Percentage of customers using all three devices:
+  + 0.5%
+* Percentage of customers using at least 2 devices:
+  + $7.3 + 3.3 + 8.8 + 0.5 = 19.9\text{%}$
+* Percentage of customers using only one device:
+  + $27.8 + 42.3 + 10.0 = 80.1\text{%}$
+  
+# Assignment III
+From the given info we have $P(B|A) = 0.97$ and $P(B|\overline{A}) = 0.01$
 
-# Text Formatting
+and thus: $P(\overline{B}|\overline{A}) = 0.99$
 
-*italics* and **bold**
+$P(B) = P(B|A) * P(A) + P(B|\overline{A}) * P(\overline{A}) = 0.97 * 0.04 + 0.01 * 0.96 = 0.0484$ 
 
-superscript^2^ / subscript~2~
+$P( \overline{A}|B ) = \frac{P(B|\overline{A}) P(\overline{A})} {P(B)} = \frac{0.01 * 0.96}{0.0484} = 0.1983$
 
-~~strikethrough~~
+$P(A|B) = \frac{P(B|A) P(A)}{P(B)} = \frac{0.97 * 0.04}{0.0484} = 0.8017$
 
-`verbatim code`
-
-> Blockquote
-
-# Headings
-
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
-###### Header 6
-
-# Links & Images
-
-<https://quarto.org>
-
-[Quarto](https://quarto.org)
-
-![Caption](../../assets/img/elephant.png)
-
-[![Caption](../../assets/img/elephant.png)](https://quarto.org)
-
-[![Caption](../../assets/img/elephant.png)](https://quarto.org "An elephant")
-
-
-# Lists
-
-* unordered list
-    + sub-item 1
-    + sub-item 2
-        - sub-sub-item 1
-        
-*   item 2
-
-    Continued (indent 4 spaces)
-    
-    
-1. ordered list
-2. item 2
-    i) sub-item 1
-         A.  sub-sub-item 1
-         
-(@)  A list whose numbering
-
-continues after
-
-(@)  an interruption
-
-# Tables
-
-| Right | Left | Default | Center |
-|------:|:-----|---------|:------:|
-|   12  |  12  |    12   |    12  |
-|  123  |  123 |   123   |   123  |
-|    1  |    1 |     1   |     1  |
-
-# Source Code
-
-Use ``` to delimit blocks of source code:
-
-```
-code
-```
-
-Add a language to syntax highlight code blocks:
-
-```{r}
-1 + 1
-```
-
-```{r}
-cars
-```
-
-```{r}
-plot(cars)
-```
+These probabilities add up to 1, as they should 
