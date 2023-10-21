@@ -2,6 +2,39 @@
 title: "Statistical Concepts"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+## \
+1. Run `colSums(random_vars) / 1000` to obtain $E[\text{age}] = 33.471$ and $E[\text{income}] = 3510.731$
+2. Run `var(random_vars[1])` and `var(random_vars[2])` to obtain $Var[age] = 340.6078$ and $Var[income] = 8625646$
+3. Take the square roots of the variances to obtain $\sigma_{age} = 18.456$ and $\sigma_{income} = 2936.945$
+
+## \
+It does not make sense to compare the standard deviations alone, since the numbers are different orders of magnitude. That is, a difference in age by 50 is a significant, but a difference in income by 50 is not. One could scale the standard deviation in some way with respect to the expected value for a better comparison.
+
+## \
+1. Running `cov(random_vars)` shows the covariance is $29700.15$
+2. Running `cor(random_vars)` shows the correlation is $0.548$
+
+## \
+Correlation is easier to interpret, because it is scaled from -1 to 1. Thus it is easily comparable between different sets of variables. However the scale of the covariance depends of the scale of the variables themselves.
+
+## \
+1. Run the following code
+```R
+children = filter(random_vars, age<=18)
+colSums(children[2]) / nrow(children)
+```
+to obtain $E[\text{income}|\text{age} \le 18] = 389.61$
+
+2. Run
+```R
+middle_age = filter(random_vars, age >= 18 & age < 65)
+colSums(middle_age[2]) / nrow(middle_age)
+```
+to obtain $E[\text{income}|\text{age} \in [18,65)] = 4685.73$
+
+3. Run 
+```R
+old = filter(random_vars, age >= 65)
+colSums(old[2]) / nrow(old)
+```
+to obtain $E[\text{income}|\text{age} \ge 65] = 1777.24$
