@@ -18,7 +18,7 @@
     "href": "content/01_journal/02_statistics.html",
     "title": "Statistical Concepts",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh."
+    "text": "Run colSums(random_vars) / 1000 to obtain \\(E[\\text{age}] = 33.471\\) and \\(E[\\text{income}] = 3510.731\\)\nRun var(random_vars[1]) and var(random_vars[2]) to obtain \\(Var[age] = 340.6078\\) and \\(Var[income] = 8625646\\)\nTake the square roots of the variances to obtain \\(\\sigma_{age} = 18.456\\) and \\(\\sigma_{income} = 2936.945\\)"
   },
   {
     "objectID": "content/01_journal/04_causality.html",
@@ -89,5 +89,89 @@
     "title": "Regression Discontinuity",
     "section": "",
     "text": "Note\n\n\n\nYou can delete everything in here and start fresh."
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#section",
+    "href": "content/01_journal/02_statistics.html#section",
+    "title": "Statistical Concepts",
+    "section": "",
+    "text": "Run colSums(random_vars) / 1000 to obtain \\(E[\\text{age}] = 33.471\\) and \\(E[\\text{income}] = 3510.731\\)\nRun var(random_vars[1]) and var(random_vars[2]) to obtain \\(Var[age] = 340.6078\\) and \\(Var[income] = 8625646\\)\nTake the square roots of the variances to obtain \\(\\sigma_{age} = 18.456\\) and \\(\\sigma_{income} = 2936.945\\)"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#q1",
+    "href": "content/01_journal/02_statistics.html#q1",
+    "title": "Statistical Concepts",
+    "section": "",
+    "text": "Expected Value"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#d",
+    "href": "content/01_journal/02_statistics.html#d",
+    "title": "Statistical Concepts",
+    "section": "2 d",
+    "text": "2 d"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#problem-1",
+    "href": "content/01_journal/02_statistics.html#problem-1",
+    "title": "Statistical Concepts",
+    "section": "",
+    "text": "Run colSums(random_vars) / 1000 to obtain \\(E(\\text{age}) = 33.471\\) and \\(E(\\text{income}) = 3510.731\\)\nRun var(random_vars[1]) and var(random_vars[2]) to obtain \\(Var(age) = 340.6078\\) and \\(Var(income) = 8625646\\)\nTake the square roots of the variances to obtain \\(\\sigma_{age} = 18.456\\) and \\(\\sigma_{income} = 2936.945\\)"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#problem-2",
+    "href": "content/01_journal/02_statistics.html#problem-2",
+    "title": "Statistical Concepts",
+    "section": "2 Problem 2",
+    "text": "2 Problem 2\nIt does not make sense to compare the standard deviations alone, since the numbers are different orders of magnitude. That is, a difference in age by 50 is a significant, but a difference in income by 50 is not. One could scale the standard deviation in some way with respect to the expected value for a better comparison."
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#problem-3",
+    "href": "content/01_journal/02_statistics.html#problem-3",
+    "title": "Statistical Concepts",
+    "section": "3 Problem 3",
+    "text": "3 Problem 3\n\nRunning cov(random_vars) shows the covariance is \\(29700.15\\)\nRunning cor(random_vars) shows the correlation is \\(0.548\\)"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#problem-4",
+    "href": "content/01_journal/02_statistics.html#problem-4",
+    "title": "Statistical Concepts",
+    "section": "4 Problem 4",
+    "text": "4 Problem 4\nCorrelation is easier to interpret, because it is scaled from -1 to 1. Thus it is easily comparable between different sets of variables. However the scale of the covariance depends of the scale of the variables themselves."
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#problem-5",
+    "href": "content/01_journal/02_statistics.html#problem-5",
+    "title": "Statistical Concepts",
+    "section": "5 Problem 5",
+    "text": "5 Problem 5\n\n\n\nchildren = filter(random_vars, age&lt;=18)\ncolSums(children[2]) / nrow(children)\nyields \\(E[\\text{income}|\\text{age} \\le 18] = 389.61\\)"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#section-1",
+    "href": "content/01_journal/02_statistics.html#section-1",
+    "title": "Statistical Concepts",
+    "section": "2 \n",
+    "text": "2 \n\nIt does not make sense to compare the standard deviations alone, since the numbers are different orders of magnitude. That is, a difference in age by 50 is a significant, but a difference in income by 50 is not. One could scale the standard deviation in some way with respect to the expected value for a better comparison."
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#section-2",
+    "href": "content/01_journal/02_statistics.html#section-2",
+    "title": "Statistical Concepts",
+    "section": "3 \n",
+    "text": "3 \n\n\nRunning cov(random_vars) shows the covariance is \\(29700.15\\)\nRunning cor(random_vars) shows the correlation is \\(0.548\\)"
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#section-3",
+    "href": "content/01_journal/02_statistics.html#section-3",
+    "title": "Statistical Concepts",
+    "section": "4 \n",
+    "text": "4 \n\nCorrelation is easier to interpret, because it is scaled from -1 to 1. Thus it is easily comparable between different sets of variables. However the scale of the covariance depends of the scale of the variables themselves."
+  },
+  {
+    "objectID": "content/01_journal/02_statistics.html#section-4",
+    "href": "content/01_journal/02_statistics.html#section-4",
+    "title": "Statistical Concepts",
+    "section": "5 \n",
+    "text": "5 \n\n\nRun the following code\n\nchildren = filter(random_vars, age&lt;=18)\ncolSums(children[2]) / nrow(children)\nto obtain \\(E[\\text{income}|\\text{age} \\le 18] = 389.61\\)\n\nRun\n\nmiddle_age = filter(random_vars, age &gt;= 18 & age &lt; 65)\ncolSums(middle_age[2]) / nrow(middle_age)\nto obtain \\(E[\\text{income}|\\text{age} \\in [18,65)] = 4685.73\\)\n\nRun\n\nold = filter(random_vars, age &gt;= 65)\ncolSums(old[2]) / nrow(old)\nto obtain \\(E[\\text{income}|\\text{age} \\ge 65] = 1777.24\\)"
   }
 ]
