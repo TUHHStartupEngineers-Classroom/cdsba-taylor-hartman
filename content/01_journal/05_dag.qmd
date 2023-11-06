@@ -4,7 +4,7 @@ title: "Directed Acyclic Graphs"
 
 # \
 ```{R}
-#| eval: false
+#| eval: true
 library(tidyverse)
 library(dagitty)
 library(ggdag)
@@ -18,12 +18,11 @@ schooling_2 <- dagify(
 )
 
 ggdag(schooling_2, text = F) +
-  theme_dag_cds() + # custom theme, can be left out
-  geom_dag_point(color = ggthemr::swatch()[2]) +
   geom_dag_text(color = NA) +
-  geom_dag_edges(edge_color = "white") +
+  geom_dag_edges(edge_color = "blue") +
   geom_dag_label_repel(aes(label = name))
 ```
+Location is a confounder on parking spots and sales. Thus one cannot simply say that the treatment (parking spots) have a causal effect on the outcome (sales). 
 
 # \ 
 ```{R}
