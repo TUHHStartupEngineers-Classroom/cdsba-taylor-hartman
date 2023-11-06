@@ -2,6 +2,59 @@
 title: "Directed Acyclic Graphs"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+# \
+```{R}
+#| eval: false
+library(tidyverse)
+library(dagitty)
+library(ggdag)
+
+schooling_2 <- dagify(
+  parking ~ location,
+  sales ~ location,
+  sales ~ parking,
+  coords = list(x = c(parking = 1, sales = 3, location = 2),
+                y = c(parking = 1, sales = 1, location = 2))
+)
+
+ggdag(schooling_2, text = F) +
+  theme_dag_cds() + # custom theme, can be left out
+  geom_dag_point(color = ggthemr::swatch()[2]) +
+  geom_dag_text(color = NA) +
+  geom_dag_edges(edge_color = "white") +
+  geom_dag_label_repel(aes(label = name))
+```
+
+# \ 
+```{R}
+#| eval: true
+library(tidyverse)
+customer_sat <- readRDS('~/College/TUHH/causual_data_science/data/customer_sat.rds')
+lm_sat_fol <- lm(satisfaction ~ follow_ups, customer_sat)
+summary(lm_sat_fol)
+```
+
+```{R}
+#| eval: true
+lm_sat_fol_sub <- lm(satisfaction ~ . , customer_sat)
+summary(lm_sat_fol_sub)
+```
+
+# \
+The coefficient for the regression of satisfaction on follow_ups is negative, yet the coefficients of satisfaction on follow_ups when considering subscription type are all positive. This illustrates that without considering subscription type, one could incorrectly assume that more follow ups indicate less satisfaction. However when one considers subscription type as well, it becomes clearer that the different groupings of satisfaction seem to be influenced more by subscription type than follow ups. Within these groupings more follow ups actually does improve user satisfaction. 
+
+# \
+```{R}
+#| eval: true
+#| message: false
+satisfy_followup <- ggplot(customer_sat, aes(x = follow_ups, y = satisfaction)) +
+  geom_point(alpha = .8) +
+  stat_smooth(method = "lm", se = F)
+satisfy_followup
+
+satisfy_followup_cond <- ggplot(customer_sat, aes(x = follow_ups, y = satisfaction, color = subscription)) +
+  geom_point(alpha = .8) +
+  stat_smooth(method = "lm", se = F) +
+  theme(legend.position = "right")
+satisfy_followup_cond
+```
