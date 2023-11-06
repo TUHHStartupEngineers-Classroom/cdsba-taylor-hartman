@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="section" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> <br>
 </h1>
-<div class="cell" data-hash="05_dag_cache/html/unnamed-chunk-1_7dd7d5c05c8f89523607961ab5be63d7">
+<div class="cell" data-hash="05_dag_cache/html/unnamed-chunk-1_0212acde54b60bd99be763847352ce11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dagitty)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(ggdag)</span>
@@ -245,12 +245,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12"></a></span>
 <span id="cb1-13"><a href="#cb1-13"></a><span class="fu">ggdag</span>(schooling_2, <span class="at">text =</span> F) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">theme_dag_cds</span>() <span class="sc">+</span> <span class="co"># custom theme, can be left out</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">geom_dag_point</span>(<span class="at">color =</span> ggthemr<span class="sc">::</span><span class="fu">swatch</span>()[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">geom_dag_text</span>(<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>  <span class="fu">geom_dag_edges</span>(<span class="at">edge_color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">geom_dag_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">geom_dag_text</span>(<span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">geom_dag_edges</span>(<span class="at">edge_color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">geom_dag_label_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_dag_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="05_dag_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
 </div>
+</div>
+</div>
+<p>Location is a confounder on parking spots and sales. Thus one cannot simply say that the treatment (parking spots) have a causal effect on the outcome (sales).</p>
 </section>
 <section id="section-1" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> &nbsp;</h1>
@@ -323,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_dag_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="05_dag_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_dag_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="05_dag_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -335,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_dag_files/figure-html/unnamed-chunk-4-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="05_dag_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_dag_files/figure-html/unnamed-chunk-4-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="05_dag_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -694,7 +700,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":true});</script>
 
 
 
