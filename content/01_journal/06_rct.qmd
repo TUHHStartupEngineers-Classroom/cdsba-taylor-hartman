@@ -2,6 +2,73 @@
 title: "Randomized Controlled Trials"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+```{R}
+#| eval: true 
+library(tidyverse)
+abtest <- readRDS('~/College/TUHH/causual_data_science/data/abtest_online.rds')
+```
+
+# \ 
+```{R}
+#| eval: true
+prev_visit <- 
+  ggplot(abtest, 
+         aes(x = chatbot, 
+             y = previous_visit, 
+             color = as.factor(chatbot))) +
+  stat_summary(geom = "errorbar", 
+               width = .5,
+               fun.data = "mean_se", 
+               fun.args = list(mult=1.96),
+               show.legend = F) +
+  labs(x = NULL, y = "Previous Visits", title = "Difference in Previous Visits")
+
+purchase_amt <- 
+  ggplot(abtest, 
+         aes(x = chatbot, 
+             y = purchase_amount, 
+             color = as.factor(chatbot))) +
+  stat_summary(geom = "errorbar", 
+               width = .5,
+               fun.data = "mean_se", 
+               fun.args = list(mult=1.96),
+               show.legend = F) +
+  labs(x = NULL, y = "Outcome", title = "Difference in outcome")
+
+purchase <- 
+  ggplot(abtest, 
+         aes(x = chatbot, 
+             y = purchase, 
+             color = as.factor(chatbot))) +
+  stat_summary(geom = "errorbar", 
+               width = .5,
+               fun.data = "mean_se", 
+               fun.args = list(mult=1.96),
+               show.legend = F) +
+  labs(x = NULL, y = "Outcome", title = "Difference in outcome")
+
+prev_visit
+purchase_amt
+purchase
+```
+
+
+# \
+```{R}
+lm_amt <- lm(purchase_amount ~ chatbot, abtest)
+summary(lm_amt)
+```
+
+There appears to be a negative correlation between chatbot and sales.
+
+# \
+```{R}
+lm_cate <- lm(purchase_amount ~ chatbot * previous_visit + chatbot * mobile_device, abtest)
+summary(lm_cate)
+```
+
+# \
+```{R}
+lm_boolean <- lm(purchase ~ chatbot * previous_visit + chatbot * mobile_device, abtest)
+summary(lm_boolean)
+```

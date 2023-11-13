@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Oliver Mork">
+<meta name="author" content="William Hartman">
 
 <title>MyLabJournal - Randomized Controlled Trials</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,6 +77,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,6 +100,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -148,7 +188,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">1</span> &nbsp;</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">2</span> <br>
+  </a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">3</span> <br>
+  </a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="header-section-number">4</span> <br>
+  </a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -165,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Oliver Mork </p>
+             <p>William Hartman </p>
           </div>
   </div>
     
@@ -176,21 +228,172 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="cell" data-hash="06_rct_cache/html/unnamed-chunk-1_27a42eae949136d67605dab5961ae3d6">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>abtest <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">'~/College/TUHH/causual_data_science/data/abtest_online.rds'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<section id="section" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> &nbsp;</h1>
+<div class="cell" data-hash="06_rct_cache/html/unnamed-chunk-2_c0981c3a36731fd7d788d29fbecd2498">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>prev_visit <span class="ot">&lt;-</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">ggplot</span>(abtest, </span>
+<span id="cb2-3"><a href="#cb2-3"></a>         <span class="fu">aes</span>(<span class="at">x =</span> chatbot, </span>
+<span id="cb2-4"><a href="#cb2-4"></a>             <span class="at">y =</span> previous_visit, </span>
+<span id="cb2-5"><a href="#cb2-5"></a>             <span class="at">color =</span> <span class="fu">as.factor</span>(chatbot))) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7"></a>               <span class="at">width =</span> .<span class="dv">5</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>               <span class="at">fun.data =</span> <span class="st">"mean_se"</span>, </span>
+<span id="cb2-9"><a href="#cb2-9"></a>               <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult=</span><span class="fl">1.96</span>),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>               <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Previous Visits"</span>, <span class="at">title =</span> <span class="st">"Difference in Previous Visits"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>purchase_amt <span class="ot">&lt;-</span> </span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="fu">ggplot</span>(abtest, </span>
+<span id="cb2-15"><a href="#cb2-15"></a>         <span class="fu">aes</span>(<span class="at">x =</span> chatbot, </span>
+<span id="cb2-16"><a href="#cb2-16"></a>             <span class="at">y =</span> purchase_amount, </span>
+<span id="cb2-17"><a href="#cb2-17"></a>             <span class="at">color =</span> <span class="fu">as.factor</span>(chatbot))) <span class="sc">+</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb2-19"><a href="#cb2-19"></a>               <span class="at">width =</span> .<span class="dv">5</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>               <span class="at">fun.data =</span> <span class="st">"mean_se"</span>, </span>
+<span id="cb2-21"><a href="#cb2-21"></a>               <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult=</span><span class="fl">1.96</span>),</span>
+<span id="cb2-22"><a href="#cb2-22"></a>               <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Outcome"</span>, <span class="at">title =</span> <span class="st">"Difference in outcome"</span>)</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a>purchase <span class="ot">&lt;-</span> </span>
+<span id="cb2-26"><a href="#cb2-26"></a>  <span class="fu">ggplot</span>(abtest, </span>
+<span id="cb2-27"><a href="#cb2-27"></a>         <span class="fu">aes</span>(<span class="at">x =</span> chatbot, </span>
+<span id="cb2-28"><a href="#cb2-28"></a>             <span class="at">y =</span> purchase, </span>
+<span id="cb2-29"><a href="#cb2-29"></a>             <span class="at">color =</span> <span class="fu">as.factor</span>(chatbot))) <span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"errorbar"</span>, </span>
+<span id="cb2-31"><a href="#cb2-31"></a>               <span class="at">width =</span> .<span class="dv">5</span>,</span>
+<span id="cb2-32"><a href="#cb2-32"></a>               <span class="at">fun.data =</span> <span class="st">"mean_se"</span>, </span>
+<span id="cb2-33"><a href="#cb2-33"></a>               <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult=</span><span class="fl">1.96</span>),</span>
+<span id="cb2-34"><a href="#cb2-34"></a>               <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Outcome"</span>, <span class="at">title =</span> <span class="st">"Difference in outcome"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a>prev_visit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="06_rct_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="06_rct_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>You can delete everything in here and start fresh.</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>purchase_amt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="06_rct_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="06_rct_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>purchase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="06_rct_files/figure-html/unnamed-chunk-2-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="06_rct_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <br>
+</h1>
+<div class="cell" data-hash="06_rct_cache/html/unnamed-chunk-3_f740ef481223120ffc2533de56f34b6d">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>lm_amt <span class="ot">&lt;-</span> <span class="fu">lm</span>(purchase_amount <span class="sc">~</span> chatbot, abtest)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">summary</span>(lm_amt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; lm(formula = purchase_amount ~ chatbot, data = abtest)
+#&gt; 
+#&gt; Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -16.702 -14.478  -9.626  13.922  64.648 
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)  16.7017     0.8374  19.944  &lt; 2e-16 ***
+#&gt; chatbotTRUE  -7.0756     1.1796  -5.998 2.79e-09 ***
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; Residual standard error: 18.65 on 998 degrees of freedom
+#&gt; Multiple R-squared:  0.0348, Adjusted R-squared:  0.03383 
+#&gt; F-statistic: 35.98 on 1 and 998 DF,  p-value: 2.787e-09</code></pre>
+</div>
+</div>
+<p>There appears to be a negative correlation between chatbot and sales.</p>
+</section>
+<section id="section-2" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <br>
+</h1>
+<div class="cell" data-hash="06_rct_cache/html/unnamed-chunk-4_fa62e08a9c14fd569319c9c8f131217b">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>lm_cate <span class="ot">&lt;-</span> <span class="fu">lm</span>(purchase_amount <span class="sc">~</span> chatbot <span class="sc">*</span> previous_visit <span class="sc">+</span> chatbot <span class="sc">*</span> mobile_device, abtest)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">summary</span>(lm_cate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; lm(formula = purchase_amount ~ chatbot * previous_visit + chatbot * 
+#&gt;     mobile_device, data = abtest)
+#&gt; 
+#&gt; Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -22.057 -15.928  -7.419  12.804  65.333 
+#&gt; 
+#&gt; Coefficients:
+#&gt;                               Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)                    17.2052     1.2982  13.253  &lt; 2e-16 ***
+#&gt; chatbotTRUE                   -11.1064     1.8434  -6.025 2.38e-09 ***
+#&gt; previous_visit                 -0.1030     0.3749  -0.275 0.783562    
+#&gt; mobile_deviceTRUE              -0.8791     1.7823  -0.493 0.621943    
+#&gt; chatbotTRUE:previous_visit      2.0978     0.5781   3.629 0.000299 ***
+#&gt; chatbotTRUE:mobile_deviceTRUE   0.2044     2.5148   0.081 0.935229    
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; Residual standard error: 18.49 on 994 degrees of freedom
+#&gt; Multiple R-squared:  0.05495,    Adjusted R-squared:  0.0502 
+#&gt; F-statistic: 11.56 on 5 and 994 DF,  p-value: 7.177e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <br>
+</h1>
+<div class="cell" data-hash="06_rct_cache/html/unnamed-chunk-5_74126b63c6d75af61407238a10ddcd6f">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>lm_boolean <span class="ot">&lt;-</span> <span class="fu">lm</span>(purchase <span class="sc">~</span> chatbot <span class="sc">*</span> previous_visit <span class="sc">+</span> chatbot <span class="sc">*</span> mobile_device, abtest)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">summary</span>(lm_boolean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; lm(formula = purchase ~ chatbot * previous_visit + chatbot * 
+#&gt;     mobile_device, data = abtest)
+#&gt; 
+#&gt; Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -0.6618 -0.4708 -0.2035  0.4992  0.8601 
+#&gt; 
+#&gt; Coefficients:
+#&gt;                                 Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)                    0.5096692  0.0326912  15.590  &lt; 2e-16 ***
+#&gt; chatbotTRUE                   -0.3572109  0.0464210  -7.695 3.40e-14 ***
+#&gt; previous_visit                -0.0044165  0.0094401  -0.468    0.640    
+#&gt; mobile_deviceTRUE             -0.0129354  0.0448818  -0.288    0.773    
+#&gt; chatbotTRUE:previous_visit     0.0680830  0.0145576   4.677 3.32e-06 ***
+#&gt; chatbotTRUE:mobile_deviceTRUE  0.0003328  0.0633288   0.005    0.996    
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; Residual standard error: 0.4657 on 994 degrees of freedom
+#&gt; Multiple R-squared:  0.08604,    Adjusted R-squared:  0.08144 
+#&gt; F-statistic: 18.71 on 5 and 994 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -542,6 +745,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":true});</script>
 
 
 
